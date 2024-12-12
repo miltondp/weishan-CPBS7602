@@ -87,10 +87,6 @@ for chunk in df:
     )
     i += 1
 
-gene_mad_df.to_csv(
-    os.path.join(data_path, 'gene_stats.csv')
-)
-
 gene_stats_df = pd.read_csv(
     os.path.join(data_path, 'gene_stats.csv')
 )
@@ -118,3 +114,6 @@ print(f'Number of samples: {gtex_v8_tpm.shape[1]}')
 del dfs
 gc.collect()
 id_to_symbol_mapping = id_to_symbol_mapping.loc[gene_ids,:]
+
+id_to_symbol_mapping.to_csv(os.path.join('.', 'gtex_v8_gene_id_to_symbol.csv'))
+gtex_v8_tpm.to_csv(os.path.join('.', 'gtex_v8_features.csv'))
