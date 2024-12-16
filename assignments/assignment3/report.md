@@ -41,16 +41,16 @@ The optimal paramter for UMAP is determined to be 'n\_neighbors'=30 and 'learnin
 
 | Ensembl Model | Best Balanced Accuracy from PCA | Best Balanced Accuracy from UMAP | Parameter Combination |
 |----------|----------|----------|----------|
-| **Random Forest Classifier**    | 0.620  | 0.981  | 'n\_estimators'=50 and 'max\_depth'=10 |
-| **HistGradientBoostingClassifier**    | 0.621 | 0.981 | 'n\_estimators'=50 and 'learning\_rate'=0.05 |
+| **Random Forest Classifier**    | 0.650  | 0.989  | 'n\_estimators'=100 and 'max\_depth'=20 |
+| **HistGradientBoostingClassifier**    | 0.655 | 0.989 | 'n\_iter'=50 and 'learning\_rate'=0.05 |
 
 
 **Class specific Predictions Accuracy on the optimal model##
 1. **Random Forest Classifier**:
-   - The worst class to be predicted is Blood Vessel and Colon, with recalls of 0.95 and 0.96 respectively. Every other tissue had a f1-score of at least 0.99
+   - The worst class to be predicted are Adipose, Blood Vessel and Colon, with F1 score of 0.96, 0.97 and 0.98 respectively.
 
 2. **HistGradientBoostingClassifier**:
-   - The worst class to be predicted is Colon, with recalls of 0.95 and 0.96 respectively. Every other tissue had a f1-score of at least 0.99
+   - The worst class to be predicted are Adipose, Blood Vessel and Esophagus and Colon, with F1 score of 0.96, 0.97, 0.98 and 0.98 respectively.
 
 ---
 
@@ -71,11 +71,11 @@ The optimal paramter for UMAP is determined to be 'n\_neighbors'=30 and 'learnin
 
 | Ensembl Model | Best MSE from PCA | Best MSE from UMAP | Parameter Combination |
 |----------|----------|----------|----------|
-| **Random Forest Classifier**    | 231.6  | 201.4  | 'n\_estimators'=100 and 'max\_depth'=10 |
-| **HistGradientBoostingClassifier**    | 192.3 | 0177.5 | 'max\_iter'=50 and 'learning\_rate'=0.05 |
+| **Random Forest Classifier**    | 178.3  | 173.6  | 'n\_estimators'=200 and 'max\_depth'=10 |
+| **HistGradientBoostingClassifier**    | 173.7 | 162.2 | 'max\_iter'=50 and 'learning\_rate'=0.05 |
 
-- Both RF and HGB struggled to predict age accurately. With large mean square error of more than 190. 
-- Upon plotting the scatter plot of real test value and predicted value, the random forest predction appeared like random noise whereas gradient boosting just estimated everybody to be between age of 40 to 60. 
+- Both RF and HGB struggled to predict age accurately. With large mean square error of more than 170. 
+- Upon plotting the scatter plot of real test value and predicted value, both model seemed to estimate the same range of age between 40 to 60 to all age classes irrespective of real age. 
 
 ---
 
